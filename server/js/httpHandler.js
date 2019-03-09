@@ -19,6 +19,7 @@ module.exports.router = (req, res, next = ()=>{}) => {
   }
 };
 
+//Spaghetti Code: Consider other place to put this Helper Function
 const swimOptions = ['up', 'down', 'left', 'right']
 const getRandom = () => {
   return swimOptions[Math.floor(Math.random() * 4)]
