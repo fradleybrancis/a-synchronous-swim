@@ -8,6 +8,18 @@ module.exports.backgroundImageFile = './background.jpg';
 
 module.exports.router = (req, res, next = ()=>{}) => {
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
-  res.writeHead(200, headers);
-  res.end();
+
+  if (req.method === 'GET') {
+    res.writeHead(200, headers);
+    res.end(getRandom());
+  }
+  else if (req.method !== 'GET') {
+    res.writeHead(200, headers);
+    res.end();
+  }
 };
+
+const swimOptions = ['up', 'down', 'left', 'right']
+const getRandom = () => {
+  return swimOptions[Math.floor(Math.random() * 4)]
+}
